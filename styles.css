@@ -1,0 +1,59 @@
+
+body {
+  margin: 0 auto;
+}
+
+
+.align {
+  display: flex;
+}
+
+.align-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  display: block;
+}
+
+.blue-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: blue;
+  width: 70%;
+  height: 100vh;
+}
+
+.inner-header {
+  margin-top: -70px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #FFF;
+  font-size: 30px;
+}
+
+.choose-game {
+  margin-top: 10px;
+  color: #FFF;
+  font-size: 20px;
+}
+
+.button {
+  color: #FFF;
+  background-color: #00008B;
+  width: 30%;
+  border-radius: 5px;
+}
+
+
+
+.light-blue-section {
+  display: flex;
+  justify-content: center;
+  background-color: #6495ED;
+  width: 15%;
+  height: 100vh;
+}
