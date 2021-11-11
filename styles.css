@@ -30,7 +30,7 @@ main {
   color: #FFF;
   background-color: #00008B;
   border-radius: 5px;
-  padding: 6px;
+  padding: 7px;
   font-size: 14px;
 }
 
@@ -54,7 +54,7 @@ main {
 }
 
 .choose-game {
-  margin-top: 10px;
+  margin-top: -60px;
   color: #FFF;
   font-size: 20px;
 }
@@ -69,7 +69,7 @@ main {
   justify-content: space-evenly;
 }
 
-button {
+.fighter-icon-buttons {
   width: 25%;
   background-color: blue;
   border: 0;
