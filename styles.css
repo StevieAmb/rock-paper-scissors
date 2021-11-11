@@ -69,8 +69,14 @@ main {
   justify-content: space-evenly;
 }
 
+button {
+  width: 25%;
+  background-color: blue;
+  border: 0;
+}
+
 .game-icon {
-  width: 15%;
+  width: 55%;
   cursor: pointer;
 }
 
