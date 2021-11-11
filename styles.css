@@ -25,6 +25,15 @@ main {
   margin-top: 35px;
 }
 
+.change-game {
+  margin-top: 45px;
+  color: #FFF;
+  background-color: #00008B;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 14px;
+}
+
 .blue-section {
   display: flex;
   justify-content: space-evenly;
@@ -83,3 +92,5 @@ main {
 .hidden {
   display: none;
 }
+
+/* change background color of picture, by changing background color of picture to the background color that you want. */
