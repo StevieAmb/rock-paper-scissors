@@ -61,6 +61,7 @@ main {
 
 .game-icon {
   width: 15%;
+  cursor: pointer;
 }
 
 .button {
