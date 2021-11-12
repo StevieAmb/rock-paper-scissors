@@ -15,27 +15,37 @@ var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
 //eventListeners
-classicGamePlayButton.addEventListener('click', startGame);
+classicGamePlayButton.addEventListener('click', startClassicGame);
+difficultGamePlayButton.addEventListener('click', startDifficultGame);
 changeGameButton.addEventListener('click', changeGame);
 
 
 
 
-//functions
 
-function changeGame() {
-  show(classicGamePlayButton);
-  show(difficultGamePlayButton);
-  hide(classicGameIconsSection);
-  hide(changeGameButton);
+//functions
+function startDifficultGame() {
+ startClassicGame();
+ show(difficultGameIconsSection);
+
+
 }
 
-function startGame() {
+function startClassicGame() {
   show(classicGameIconsSection);
   show(changeGameButton);
   hide(classicGamePlayButton);
   hide(difficultGamePlayButton);
 }
+
+function changeGame() {
+  show(classicGamePlayButton);
+  show(difficultGamePlayButton);
+  hide(classicGameIconsSection);
+  hide(difficultGameIconsSection);
+  hide(changeGameButton);
+}
+
 
 function show(element) {
   element.classList.remove('hidden');
