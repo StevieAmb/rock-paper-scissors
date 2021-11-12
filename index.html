@@ -9,8 +9,8 @@
         <div class="block">
           <img src="./assets/pngegg-head.png" class="player-icon-size">
           <p>Human</p>
-          <p>Wins: <span id="win-count">0</span></p>
-              <button class="change-game">CHANGE GAME?</button>
+          <p>Wins: <span id="humanWinCount">0</span></p>
+              <button class="change-game hidden" id="changeGame">CHANGE GAME?</button>
         </div>
       </section>
       <section class="align-content blue-section">
@@ -18,38 +18,38 @@
           <h1>Rock, Paper, Scissors!</h1>
         </div>
         <div class="choose-game">
-          <h4>Choose Your Game</h4>
+          <h4 id="chooseYourGame">Choose Your Game</h4>
         </div>
       <section class="align-content">
         <div class="fighter-icons align-icons align-content">
-            <div class="classic-fighter-icons">
-              <button class="fighter-icon-buttons">
+            <div class="classic-fighter-icons hidden" id="classicGameIconsSection">
+              <button class="fighter-icon-buttons" id="bookButton">
                 <img src="./assets/magic-book.png" class="game-icon">
               </button>
-              <button class="fighter-icon-buttons">
+              <button class="fighter-icon-buttons" id="crystalBallButton">
                 <img src="./assets/crystal-ball.png" class="game-icon">
               </button>
-              <button class="fighter-icon-buttons">
+              <button class="fighter-icon-buttons" id="wandButton">
                 <img src="./assets/magic-wand.png" class="game-icon">
               </button>
             </div>
-            <div class="difficult-fighter-icons">
-              <button class="fighter-icon-buttons">
+            <div class="difficult-fighter-icons hidden" id="diffGameIconsSelection">
+              <button class="fighter-icon-buttons" id="broomButton">
                 <img src="./assets/magic-broom.png" class="game-icon">
               </button>
-              <button class="fighter-icon-buttons">
+              <button class="fighter-icon-buttons" id="hatButton">
                 <img src="./assets/witch-hat.png" class="game-icon">
               </button>
             </div>
           </div>
       </section>
-        <button class="button">
+        <button class="button" id="classicGameButton">
           <h4>CLASSIC</h4>
           <p>Book > Broom</p>
           <p>Crystal Ball > Book</p>
           <p>Wand > Crystal Ball</p>
         </button>
-        <button class="button">
+        <button class="button" id="difficultGameButton">
           <h4>DIFFICULT</h4>
           <p>Wand > Brook & Crystal Ball</p>
           <p>Book > Broom & Crystal Ball</p>
@@ -62,11 +62,10 @@
         <div class="block">
           <img src="./assets/witch.png" class="player-icon-size">
           <p>Computer</p>
-          <p>Wins: <span id="win-count">0</span></p>
+          <p>Wins: <span id="compWinCount">0</span></p>
         </div>
-
-
-    </main>
+      </main>
+  <script type="text/javascript" src="./src/main.js"></script>
   </body>
 </html>
 
