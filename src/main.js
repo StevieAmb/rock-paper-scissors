@@ -14,6 +14,8 @@ var humanWinCount = document.getElementById('humanWinCount');
 var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
+//arrays
+
 //eventListeners
 classicGamePlayButton.addEventListener('click', startClassicGame);
 difficultGamePlayButton.addEventListener('click', startDifficultGame);
@@ -27,7 +29,7 @@ changeGameButton.addEventListener('click', changeGame);
 function startDifficultGame() {
  startClassicGame();
  show(difficultGameIconsSection);
-
+ chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 
 }
 
@@ -36,6 +38,7 @@ function startClassicGame() {
   show(changeGameButton);
   hide(classicGamePlayButton);
   hide(difficultGamePlayButton);
+  chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 
 function changeGame() {
@@ -44,6 +47,7 @@ function changeGame() {
   hide(classicGameIconsSection);
   hide(difficultGameIconsSection);
   hide(changeGameButton);
+  chooseYourGameTitleLine.innerText = "Choose Your Game!";
 }
 
 
@@ -53,4 +57,8 @@ function show(element) {
 
 function hide(element) {
   element.classList.add('hidden');
+}
+
+function getRandomIndex(array) {
+   return Math.floor(Math.random() * array.length);
 }
