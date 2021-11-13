@@ -12,7 +12,7 @@ class Game {
 // A way to detect when a game is a draw (no one has won)
 // A way to reset the Game’s board to begin a new game
 
-  playGame() {
+  trackData() {
 
   }
 
