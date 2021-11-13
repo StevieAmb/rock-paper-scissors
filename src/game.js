@@ -12,7 +12,7 @@ class Game {
 // A way to detect when a game is a draw (no one has won)
 // A way to reset the Game’s board to begin a new game
 
-  playGame() {
+  trackData() {
 
   }
 
@@ -24,10 +24,25 @@ class Game {
   checkWinner() {
     var playerChoice = this.player.choice;
     var computerChoice = this.computer.choice;
-    if (playerChoice === 'book' && computerChoice === 'broom')
+    if (playerChoice === 'book' && computerChoice === 'broom') {
       this.player.wins++;
       this.winner = this.player.name;
-  }
+      console.log('Wingardium Leviosa!')
+   } else if (playerChoice === 'crystalBall' && computerChoice === 'book') {
+      this.player.wins++;
+      this.winner = this.player.name;
+      console.log('Petrificus Totalus!');
+   } else if (playerChoice === 'wand' && computerChoice === 'crystalBall') {
+      this.player.wins++;
+      this.winner = this.player.name;
+      console.log('Expecto Patronum!');
+   } else if (playerChoice === computerChoice) {
+      console.log('Are you a witch or not?');
+   } else {
+      this.computer.wins++;
+      console.log('Avada Kadavra!');
+   }
+ }
 
   updateWinText() {
     chooseYourGameTitleLine.innerText = `${this.winner}`

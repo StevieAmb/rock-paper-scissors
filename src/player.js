@@ -27,9 +27,12 @@ class Player {
     var chosenFighter = event.target.closest('button').id;
     console.log(event.target.closest('button').id);
     this.choice = chosenFighter;
+
   }
 
   takeTurn() {
+    chooseFighter(event);
+    chooseRandomFighter(difficultChoices);
     if(!this.choice) {
       this.choice = fighter;
     } else {
