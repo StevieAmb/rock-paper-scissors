@@ -1,22 +1,40 @@
 class Player {
-  constructor(name, image, choice) {
+  constructor(name, image) {
     this.name = name;
     this.emoji = image;
-    this.choice = choice;
+    this.choice = "";
     this.wins = 0;
   }
 
   saveWinsToStorage() {
-
+   this.wins++;
+   //JSON.stringify
+   //save to localStorage;
   }
 
   retrieveWinsFromStorage() {
+    localStorage.getItem();
+  }
 
+  chooseRandomFighter(gameTypeChoicesArray) {
+    var fighter =
+    gameTypeChoicesArray[getRandomIndex(gameTypeChoicesArray)];
+    this.choice = fighter;
+    console.log(this.choice);
+  }
+
+  chooseFighter(event) {
+    var chosenFighter = event.target.closest('button').id;
+    console.log(event.target.closest('button').id);
+    this.choice = chosenFighter;
   }
 
   takeTurn() {
-    this.choice =
-    this.choice =
+    if(!this.choice) {
+      this.choice = fighter;
+    } else {
+      this.choice = chosenFighter;
+    }
   }
 }
 
@@ -30,3 +48,6 @@ class Player {
 
 //your player class has to be used to remake the the player sections
 //of the comp. (so use innerHTML to put the character up)
+function getRandomIndex(array) {
+   return Math.floor(Math.random() * array.length);
+}
