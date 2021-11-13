@@ -15,6 +15,10 @@ var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
 //arrays
+var choices = []
+
+//object instance
+
 
 //eventListeners
 classicGamePlayButton.addEventListener('click', startClassicGame);
@@ -62,3 +66,9 @@ function hide(element) {
 function getRandomIndex(array) {
    return Math.floor(Math.random() * array.length);
 }
+
+//function hide(elements) {
+  //for (var i = 0; i < elements.length; i++) {
+  //  elements[i].classList.add('hidden');
+//  }
+//}
