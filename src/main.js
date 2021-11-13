@@ -35,9 +35,11 @@ difficultGamePlayButton.addEventListener('click', startDifficultGame);
 changeGameButton.addEventListener('click', changeGame);
 
 function play(event) {
-  newGame.computer.chooseRandomFighter(classicChoices);
-  newGame.player.chooseFighter(event);
+  // newGame.computer.chooseRandomFighter(classicChoices);
+  // newGame.player.chooseFighter(event);
+  newGame.player.takeTurn();
   newGame.checkWinner();
+
   //change icon view to player choices (innerHTML)
   //updateWinText
   //save wins to local storage
