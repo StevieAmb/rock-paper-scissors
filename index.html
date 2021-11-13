@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
  <head>
+   <meta charset="utf-8">
    <link rel="stylesheet" href="styles.css">
  </head>
   <body>
     <main class="align">
       <section class="light-blue-section">
         <div class="block">
-          <img src="./assets/pngegg-head.png" class="player-icon-size">
+          <p class="emoji">
+            <img src="./assets/pngegg-head.png" class="player-icon-size">
+          <p>
           <p>Human</p>
           <p>Wins: <span id="humanWinCount">0</span></p>
               <button class="change-game hidden" id="changeGame">CHANGE GAME?</button>
@@ -20,24 +23,24 @@
         <div class="choose-game">
           <h4 id="chooseYourGame">Choose Your Game!</h4>
         </div>
-      <section class="align-content">
+      <section class="align-content" id="iconBox">
         <div class="fighter-icons align-icons align-content">
             <div class="classic-fighter-icons fighter-icons hidden" id="classicGameIconsSection">
-              <button class="fighter-icon-buttons" id="bookButton">
+              <button class="fighter-icon-buttons" id="book">
                 <img src="./assets/magic-book.png" class="game-icon">
-              </button>
-              <button class="fighter-icon-buttons" id="crystalBallButton">
+               </button>
+              <button class="fighter-icon-buttons" id="crystalBall">
                 <img src="./assets/crystal-ball.png" class="game-icon">
               </button>
-              <button class="fighter-icon-buttons" id="wandButton">
+              <button class="fighter-icon-buttons" id="wand">
                 <img src="./assets/magic-wand.png" class="game-icon">
               </button>
             </div>
             <div class="difficult-fighter-icons fighter-icons hidden" id="diffGameIconsSelection">
-              <button class="fighter-icon-buttons" id="broomButton">
+              <button class="fighter-icon-buttons" id="broom">
                 <img src="./assets/magic-broom.png" class="game-icon">
               </button>
-              <button class="fighter-icon-buttons" id="hatButton">
+              <button class="fighter-icon-buttons" id="hat">
                 <img src="./assets/witch-hat.png" class="game-icon">
               </button>
             </div>
@@ -65,8 +68,8 @@
           <p>Wins: <span id="compWinCount">0</span></p>
         </div>
       </main>
-  <script type="text/javascript" src="./src/game.js"></script>
   <script type="text/javascript" src="./src/player.js"></script>"
+  <script type="text/javascript" src="./src/game.js"></script>
   <script type="text/javascript" src="./src/main.js"></script>
   </body>
 </html>
