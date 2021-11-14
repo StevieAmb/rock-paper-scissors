@@ -39,9 +39,12 @@ changeGameButton.addEventListener('click', changeGame);
 function play(event) {
   // newGame.computer.chooseRandomFighter(classicChoices);
   // newGame.player.chooseFighter(event);
-  console.log("play", event)
+
+  console.log("play", event);
   newGame.player.takeTurn(event);
-  newGame.computer.takeTurn(event);
+
+  newGame.computer.takeTurn(event, newGame.classicChoices);
+  newGame.showChosenIcon();
   newGame.checkWinner();
   //change icon view to player choices (innerHTML)
   //updateWinText
@@ -95,7 +98,7 @@ function startClassicGame() {
   show(classicGameIconsSection);
   show(changeGameButton);
   hide(classicGamePlayButton);
-  hide(difficultGamePlayButton);
+  hide(difficultGameButton);
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 
