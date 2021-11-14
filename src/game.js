@@ -28,7 +28,10 @@ class Game {
       var playerChoiceMatches = this.player.choice === iconId;
       var computerChoiceMatches = this.computer.choice === iconId;
 
-      if((playerChoiceMatches || computerChoiceMatches) || (playerChoiceMatches && computerChoiceMatches)) {
+      if(playerChoiceMatches || computerChoiceMatches) {
+        var chosenButton = document.getElementById(iconId);
+        chosenButton.classList.remove('hidden');
+      } else if (this.player.choice === this.computer.choice) {
         var chosenButton = document.getElementById(iconId);
         chosenButton.classList.remove('hidden');
       } else {
@@ -41,7 +44,7 @@ class Game {
   checkWinner() {
     var playerChoice = this.player.choice;
     var computerChoice = this.computer.choice;
-    if (playerChoice === 'book' && computerChoice === 'broom') {
+    if (playerChoice === 'book' && computerChoice === 'wand') {
       this.player.wins++;
       this.winner = this.player.name;
       console.log('Wingardium Leviosa!')
