@@ -38,13 +38,14 @@ class Game {
    } else if (playerChoice === computerChoice) {
       console.log('Are you a witch or not?');
    } else {
+      this.winner = 'Computer'
       this.computer.wins++;
       console.log('Avada Kadavra!');
    }
  }
 
   updateWinText() {
-    chooseYourGameTitleLine.innerText = `${this.winner}`
+    chooseYourGameTitleLine.innerText = `${this.winner} wins!`
     //you also need to display chosen icons (inner HTML);
     //this.player.choice
   }
