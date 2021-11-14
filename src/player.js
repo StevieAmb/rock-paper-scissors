@@ -4,6 +4,8 @@ class Player {
     this.emoji = image;
     this.choice = "";
     this.wins = 0;
+    this.classicChoices = ['book', 'crystalBall', 'wand'];
+    this.difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
   }
 
   saveWinsToStorage() {
@@ -25,18 +27,15 @@ class Player {
 
   chooseFighter(event) {
     var chosenFighter = event.target.closest('button').id;
-    console.log(event.target.closest('button').id);
     this.choice = chosenFighter;
-
+    console.log(this.choice);
   }
 
-  takeTurn() {
-    chooseFighter(event);
-    chooseRandomFighter(difficultChoices);
-    if(!this.choice) {
-      this.choice = fighter;
+  takeTurn(event) {
+    if(this.name === 'human') {
+      this.chooseFighter(event); 
     } else {
-      this.choice = chosenFighter;
+      this.chooseRandomFighter(this.classicChoices);
     }
   }
 }
