@@ -43,9 +43,9 @@ function play(event) {
   newGame.player.takeTurn(event);
   newGame.computer.takeTurn(event);
   newGame.checkWinner();
-
   //change icon view to player choices (innerHTML)
   //updateWinText
+  newGame.updateWinText();
   //save wins to local storage
   //set the timeout function
   //instantiate new game
