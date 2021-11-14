@@ -4,8 +4,7 @@ class Player {
     this.emoji = image;
     this.choice = "";
     this.wins = 0;
-    this.classicChoices = ['book', 'crystalBall', 'wand'];
-    this.difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
+
   }
 
   saveWinsToStorage() {
@@ -29,13 +28,15 @@ class Player {
     var chosenFighter = event.target.closest('button').id;
     this.choice = chosenFighter;
     console.log(this.choice);
+    //innerHTML classicGameIconsSection
   }
 
-  takeTurn(event) {
+  takeTurn(event, choicesArray) {
+
     if(this.name === 'human') {
-      this.chooseFighter(event); 
+      this.chooseFighter(event);
     } else {
-      this.chooseRandomFighter(this.classicChoices);
+      this.chooseRandomFighter(choicesArray);
     }
   }
 }
