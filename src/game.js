@@ -4,6 +4,8 @@ class Game {
     this.player = new Player('human', '🙎🏾‍♀️');
     this.computer = new Player('computer', '🖥');
     this.winner = "";
+    this.classicChoices = ['book', 'crystalBall', 'wand'];
+    this.difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
   }
 
 // A way to keep track of the data for the game board
@@ -19,6 +21,22 @@ class Game {
   setGameType(type) {
     this.type = type;
   }
+
+  showChosenIcon() {
+    for (var i = 0; i < this.classicChoices.length; i++) {
+      var iconId = this.classicChoices[i];
+      var playerChoiceMatches = this.player.choice === iconId;
+      var computerChoiceMatches = this.computer.choice === iconId;
+
+      if(playerChoiceMatches || computerChoiceMatches) {
+        var chosenButton = document.getElementById(iconId);
+        chosenButton.classList.remove('hidden');
+      } else {
+        var chosenButton = document.getElementById(iconId);
+        chosenButton.classList.add('hidden');
+      }
+    }
+}
 
   checkWinner() {
     var playerChoice = this.player.choice;
@@ -43,6 +61,10 @@ class Game {
       console.log('Avada Kadavra!');
    }
  }
+
+  setScore() {
+
+  }
 
   updateWinText() {
     chooseYourGameTitleLine.innerText = `${this.winner} wins!`
