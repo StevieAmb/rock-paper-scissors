@@ -28,7 +28,7 @@ class Game {
       var playerChoiceMatches = this.player.choice === iconId;
       var computerChoiceMatches = this.computer.choice === iconId;
 
-      if(playerChoiceMatches || computerChoiceMatches) {
+      if((playerChoiceMatches || computerChoiceMatches) || (playerChoiceMatches && computerChoiceMatches)) {
         var chosenButton = document.getElementById(iconId);
         chosenButton.classList.remove('hidden');
       } else {
