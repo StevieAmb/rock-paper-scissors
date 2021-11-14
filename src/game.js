@@ -18,7 +18,6 @@ class Game {
 
   setGameType(type) {
     this.type = type;
-    this.computer.chooseRandomFighter(type)
   }
 
   checkWinner() {
