@@ -1,12 +1,18 @@
-//buttons
-var bookFighterButton = document.getElementById('book');
-var crystalBallFighterButton = document.getElementById('crystalBall');
-var wandFighterButton = document.getElementById('wand');
-var broomFighterButton = document.getElementById('broom');
-var hatFighterButton = document.getElementById('hat');
+//buttons: choose game type
 var changeGameButton = document.getElementById('changeGame');
 var classicGamePlayButton = document.getElementById('classicGameButton');
 var difficultGamePlayButton = document.getElementById('difficultGameButton');
+//buttons: classic
+var bookFighterButton = document.getElementById('book');
+var crystalBallFighterButton = document.getElementById('crystalBall');
+var wandFighterButton = document.getElementById('wand')
+
+var bookFighterButton = document.querySelector('.book');
+var crystalBallFighterButton = document.querySelector('.crystalBall');
+var wandFighterButton = document.querySelector('.wand')
+//buttons: difficult
+var broomFighterButton = document.getElementById('broom');
+var hatFighterButton = document.getElementById('hat');
 //sections
 var classicGameIconsSection = document.getElementById('classicGameIconsSection');
 var difficultGameIconsSection = document.getElementById('diffGameIconsSelection');
@@ -15,7 +21,8 @@ var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
 //arrays && fighter choices
-var classicChoices = ['book', 'crystalBall', 'wand'];
+var classicChoices = ['book', 'crystalBall', 'wand', 'book',
+'wand', 'crystalBall'];
 var difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
 
 //object instance
@@ -49,6 +56,7 @@ function play(event) {
   //change icon view to player choices (innerHTML)
   //updateWinText
   newGame.updateWinText();
+  newGame.setScore();
   //save wins to local storage
   //set the timeout function
   //instantiate new game
