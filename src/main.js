@@ -29,7 +29,9 @@ difficultGameIconsSection.addEventListener('click', function(event){
 play(event);
 });
 // window.addEventListener('onload')
-classicGameIconsSection.addEventListener('click', play);
+classicGameIconsSection.addEventListener('click', function(event) {
+  play(event);
+});
 classicGamePlayButton.addEventListener('click', startClassicGame);
 difficultGamePlayButton.addEventListener('click', startDifficultGame);
 changeGameButton.addEventListener('click', changeGame);
@@ -37,11 +39,13 @@ changeGameButton.addEventListener('click', changeGame);
 function play(event) {
   // newGame.computer.chooseRandomFighter(classicChoices);
   // newGame.player.chooseFighter(event);
-  newGame.player.takeTurn();
+  console.log("play", event)
+  newGame.player.takeTurn(event);
+  newGame.computer.takeTurn(event);
   newGame.checkWinner();
-
   //change icon view to player choices (innerHTML)
   //updateWinText
+  newGame.updateWinText();
   //save wins to local storage
   //set the timeout function
   //instantiate new game
@@ -88,7 +92,6 @@ function startDifficultGame() {
 }
 
 function startClassicGame() {
-  newGame.setGameType(classicChoices);
   show(classicGameIconsSection);
   show(changeGameButton);
   hide(classicGamePlayButton);
