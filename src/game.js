@@ -63,10 +63,12 @@ class Game {
     } else if (playerChoice === 'ball' && computerChoice === 'book') {
       this.player.wins++;
       this.winner = this.player.name;
+      console.log(this.winner);
       console.log('Petrificus Totalus!');
     } else if (playerChoice === 'wand' && computerChoice === 'ball') {
       this.player.wins++;
       this.winner = this.player.name;
+      console.log(this.winner);
       console.log('Expecto Patronum!');
     } else if (playerChoice === computerChoice) {
       console.log('Are you a witch or not?');
@@ -85,10 +87,11 @@ class Game {
   }
 
   updateWinText() {
-    if (this.winner === 'human' || this.winner === 'computer') {
+    if (this.winner === 'Human' || this.winner === 'Ccsomputer') {
     chooseYourGameTitleLine.innerText = `${this.winner} wins!`
-  } else (
+  } else {
     chooseYourGameTitleLine.innerText = `It's a draw!`
-  )
+
   }
+}
 }
