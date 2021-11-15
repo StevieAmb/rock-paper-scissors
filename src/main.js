@@ -14,6 +14,8 @@ var wandFighterButton = document.querySelector('.wand')
 var broomFighterButton = document.getElementById('broom');
 var hatFighterButton = document.getElementById('hat');
 //sections
+var playersChosenFighters = document.getElementById('showChosenFighter');
+var allFighterIconsSection = document.getElementById('allIconsContainer');
 var classicGameIconsSection = document.getElementById('classicGameIconsSection');
 var difficultGameIconsSection = document.getElementById('diffGameIconsSelection');
 var humanWinCount = document.getElementById('humanWinCount');
@@ -21,21 +23,18 @@ var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
 //arrays && fighter choices
-var classicChoices = ['book', 'crystalBall', 'wand', 'book',
-'wand', 'crystalBall'];
-var difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
+// var classicChoices = ['book', 'ball', 'wand'];
+// var difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
 
 //object instance
 var newGame = new Game();
-console.log(newGame.player);
 
-document.querySelector('.emoji').innerHTML =  newGame.player.emoji;
 
 //eventListeners
-difficultGameIconsSection.addEventListener('click', function(event){
+allFighterIconsSection.addEventListener('click', function(event){
 play(event);
 });
-// window.addEventListener('onload')
+window.addEventListener('onload', newGame.setScore());
 classicGameIconsSection.addEventListener('click', function(event) {
   play(event);
 });
@@ -44,60 +43,66 @@ difficultGamePlayButton.addEventListener('click', startDifficultGame);
 changeGameButton.addEventListener('click', changeGame);
 
 function play(event) {
-  // newGame.computer.chooseRandomFighter(classicChoices);
-  // newGame.player.chooseFighter(event);
-
   console.log("play", event);
   newGame.player.takeTurn(event);
-
-  newGame.computer.takeTurn(event, newGame.classicChoices);
-  newGame.showChosenIcon();
+  newGame.computer.takeTurn(event);
   newGame.checkWinner();
-  //change icon view to player choices (innerHTML)
-  //updateWinText
-  newGame.updateWinText();
+  updateWinText();
+  showChosenIcons();
   newGame.setScore();
+  setTimeout(resetGame, 2000);
   //save wins to local storage
-  //set the timeout function
   //instantiate new game
   //retrieveWinsFromStorage
 }
 
+function resetGame() {
+  show(classicGameIconsSection);
+  hide(playersChosenFighters);
+  var newGame = new Game();
+}
 
-//PSEUDOCODE
-//activate the game logic when you click on a button (or section you have the
-//buttons in. Then you would use event deleg to target specific spots of that
-//by using target.event.id)
-//game logic is dependent on choices made
-//choices made is in the chooseFighter function.
+function updateWinText() {
+  if (newGame.winner === 'Human' || newGame.winner === 'Computer') {
+  chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`
+} else {
+  chooseYourGameTitleLine.innerText = `It's a draw!`
+}
+}
 
-//actions
-//1. Go to page
-    //call player method to retrieve wins and display them on side bar.
-    //instantiate a new game
-    //that new game instantiates the players
-    //screen shows two buttons for game type
-//2. Click on game difficulty
-    //call a game method to update this.type
-    //based on game type, display icons
-    //based on game type, set computer fighter
-//3. Click on icon
-   //call player chooseFighter method
-   //the other icons disappear
-   //display game.player.choice & game.computer.choice
-   //call game.checkWinner method, which decides from //the computer icon and player icon which one is //the winner
-   //call game.updateWinText to show winner
+function showChosenIcons() {
+  playersChosenFighters.innerHTML =
+  `<img src="./assets/magic-${newGame.player.choice}.png">
+  <img src="./assets/magic-${newGame.computer.choice}.png">`
+  hide(classicGameIconsSection);
+}
+
+// function resetGame() {
+//   show()
+//   hide()
+// }
    //save wins to localStorage (call playermethod)
    //set Timeout once win-text has been up for certain amount of time to reset game (that makes a new game instance) and resets the screen (in the main, because it's calling a new instance of the class when timer runs out)
    //call player method to retrieve wins and display them on side bar.
 //4. Call different methods, all play their parts
 
+// function showWinner() {
+//   innertHTML =
+// }
+
 
 //functions
+function chooseRuleType() {
+  if (newGame.type === 'classic') {
+    newGame.checkWinner();
+  } else {
+    newGame.checkWinnerDifficult();
+  }
+}
 
 
 function startDifficultGame() {
- newGame.setGameType(difficultChoices);
+ newGame.setGameType(newGame.difficultChoices);
  startClassicGame();
  show(difficultGameIconsSection);
 }
@@ -128,9 +133,10 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-function getRandomIndex(array) {
-   return Math.floor(Math.random() * array.length);
-}
+// function getRandomIndex(array) {
+//   console.log(array);
+//    return Math.floor(Math.random() * array.length);
+// }
 
 //function hide(elements) {
   //for (var i = 0; i < elements.length; i++) {
