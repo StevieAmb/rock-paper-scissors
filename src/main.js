@@ -48,6 +48,7 @@ function play(event) {
   console.log("play", event);
   newGame.checkWinner();
   updateWinText();
+  hide([allFighterIconsSection]);
   showChosenIcons();
   setTimeout(resetGame, 2000);
   newGame.setScore();
@@ -57,30 +58,43 @@ function play(event) {
   //retrieveWinsFromStorage
 }
 
-function updateWinCount() {
-  humanWinCount.innerText = newGame.player.retrieveWinsFromStorage() || 0;
-  compWinCount.innerText = newGame.computer.retrieveWinsFromStorage() || 0;
+function resetGame() {
+  if (newGame.type === 'Classic') {
+    show([allFighterIconsSection]);
+    hide([playersChosenFighters]);
+    chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
+  } else if (newGame.type === 'Difficult') {
+   startDifficultGame();
+   hide([playersChosenFighters]);
+  }
 }
 
-function resetGame() {
-  hide(playersChosenFighters);
-  newGame = new Game();
-}
+
 
 function startClassicGame() {
   show([changeGameButton, allFighterIconsSection]);
-  hide([classicGamePlayButton, difficultGameButton]);
+  hide([classicGamePlayButton, difficultGameButton, broomFighterButton, hatFighterButton]);
   newGame.type = 'Classic';
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 
 function startDifficultGame() {
   newGame.type = 'Difficult'
-  show([changeGameButton, allFighterIconsSection, broomFighterButton, hatFighterButton]);
+  show([changeGameButton, allFighterIconsSection]);
   hide([classicGamePlayButton, difficultGameButton]);
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
+function showChosenIcons() {
+  playersChosenFighters.innerHTML =
+  `<img class="player-icon-size" src="./assets/magic-${newGame.player.choice}.png">
+  <img class="player-icon-size" src="./assets/magic-${newGame.computer.choice}.png">`
+  hide(allFighterIconsSection);
+}
 
+function updateWinCount() {
+  humanWinCount.innerText = newGame.player.retrieveWinsFromStorage() || 0;
+  compWinCount.innerText = newGame.computer.retrieveWinsFromStorage() || 0;
+}
 function updateWinText() {
   if (newGame.winner === 'Human' || newGame.winner === 'Computer') {
     chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`
@@ -89,13 +103,6 @@ function updateWinText() {
   }
 }
 
-function showChosenIcons() {
-  show(playersChosenFighters);
-  hide([bookFighterButton, crystalBallFighterButton, wandFighterButton]);
-  playersChosenFighters.innerHTML =
-  `<img class="player-icon-size" src="./assets/magic-${newGame.player.choice}.png">
-  <img class="player-icon-size" src="./assets/magic-${newGame.computer.choice}.png">`
-}
 
 
 function changeGame() {
