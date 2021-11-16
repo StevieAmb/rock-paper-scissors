@@ -32,7 +32,6 @@ class Game {
     this.player.wins = this.player.retrieveWinsFromStorage() || 0;
     this.computer.wins = this.computer.retrieveWinsFromStorage() || 0;
     if (playerChoice === 'book' && (computerChoice === 'wand' || computerChoice === 'broom')) {
-      console.log(playerInput)
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
