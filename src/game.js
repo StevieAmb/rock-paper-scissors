@@ -5,7 +5,7 @@ class Game {
     this.computer = new Player('Computer', '🖥');
     this.winner = "";
     this.classicChoices = ['book', 'ball', 'wand'];
-    this.difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
+    this.difficultChoices = ['book', 'ball', 'wand', 'broom', 'hat'];
   }
 
 // A way to keep track of the data for the game board
@@ -22,73 +22,77 @@ class Game {
     this.type = type;
   }
 
-
-
-  // displayChosenIcon(playerChoice, compChoice) {
-  //   img.src = ./
-  //   img.src = ./assets/magic-${this.player.choice}.png
-  // }
-
-  showChosenIcon() {
-    for (var i = 0; i < this.classicChoices.length; i++) {
-      var iconId = this.classicChoices[i];
-      var playerChoiceMatches = this.player.choice === iconId;
-      var computerChoiceMatches = this.computer.choice === iconId;
-
-      if(playerChoiceMatches || computerChoiceMatches) {
-        var chosenButton = document.getElementById(iconId);
-        chosenButton.classList.remove('hidden');
-        console.log("if", chosenButton);
-        chosenButton.disabled = true;
-
-       if (playerChoiceMatches === computerChoiceMatches){
-        var chosenButton = document.getElementById(iconId+"2");
-        chosenButton.classList.remove('hidden');
-        chosenButton.disabled = true;
-      }
-    } else {
-        var chosenButton = document.getElementById(iconId);
-        chosenButton.classList.add('hidden');
-    }
-  }
-}
-
   checkWinner() {
+    this.player.takeTurn(this.type, this.player.choice);
+    this.computer.takeTurn(this.type);
     var playerChoice = this.player.choice;
     var computerChoice = this.computer.choice;
-    if (playerChoice === 'book' && computerChoice === 'wand') {
+    console.log(computerChoice);
+    console.log(this.type);
+    this.player.wins = this.player.retrieveWinsFromStorage() || 0;
+    this.computer.wins = this.computer.retrieveWinsFromStorage() || 0;
+    if (playerChoice === 'book' && (computerChoice === 'wand' || computerChoice === 'broom')) {
+      console.log(playerInput)
       this.player.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
       this.winner = this.player.name;
+      console.log('book', this.winner);
       console.log('Wingardium Leviosa!')
-    } else if (playerChoice === 'ball' && computerChoice === 'book') {
+      return true;
+    } else if (playerChoice === 'ball' && (computerChoice === 'book' || computerChoice === 'broom')) {
       this.player.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
       this.winner = this.player.name;
+      console.log(this.winner);
       console.log('Petrificus Totalus!');
-    } else if (playerChoice === 'wand' && computerChoice === 'ball') {
+      return true;
+      console.log('ball', this.winner)
+    } else if (playerChoice === 'wand' && (computerChoice === 'ball' || computerChoice === 'hat')) {
       this.player.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
       this.winner = this.player.name;
+      console.log('wand', this.winner);
       console.log('Expecto Patronum!');
+      return true;
+    } else if (playerChoice === 'hat' && (computerChoice === 'book' || computerChoice === 'ball')){
+      this.player.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
+      this.winner = this.player.name;
+      console.log('ball', this.winner);
+      console.log('Expelliarmus!');
+      return true;
+    } else if (playerChoice === 'broom' && (computerChoice === 'hat' || computerChoice === 'wand')) {
+      this.player.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
+      this.winner = this.player.name;
+      console.log('broom', this.winner);
+      console.log('Expecto Patronum!');
+      return true;
     } else if (playerChoice === computerChoice) {
       console.log('Are you a witch or not?');
       console.log(playerChoice);
       console.log(computerChoice);
+      return true;
     } else {
       this.winner = this.computer.name;
       this.computer.wins++;
+      this.player.saveWinsToStorage();
+      this.computer.saveWinsToStorage();
+      console.log(this.winner);
       console.log('Avada Kadavra!');
+      return false;
    }
  }
 
   setScore() {
+    this.player.wins = this.player.retrieveWinsFromStorage() || 0;
+    this.computer.wins = this.computer.retrieveWinsFromStorage() || 0;
     humanWinCount.innerText =  `${this.player.wins}`;
     compWinCount.innerText = `${this.computer.wins}`;
-  }
-
-  updateWinText() {
-    if (this.winner === 'human' || this.winner === 'computer') {
-    chooseYourGameTitleLine.innerText = `${this.winner} wins!`
-  } else (
-    chooseYourGameTitleLine.innerText = `It's a draw!`
-  )
   }
 }

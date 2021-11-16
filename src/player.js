@@ -3,40 +3,44 @@ class Player {
     this.name = name;
     this.emoji = image;
     this.choice = "";
-    this.wins = 0;
+    this.wins = this.wins || 0;
 
   }
 
   saveWinsToStorage() {
-   this.wins++;
-   //JSON.stringify
-   //save to localStorage;
+    if (this.name === 'Human') {
+      localStorage.setItem('humanWins', JSON.stringify(this.wins));
+    } else {
+      localStorage.setItem('compWins', JSON.stringify(this.wins));
+    }
   }
 
   retrieveWinsFromStorage() {
-    localStorage.getItem();
-  }
-
-  chooseRandomFighter(gameTypeChoicesArray) {
-    var fighter =
-    gameTypeChoicesArray[getRandomIndex(gameTypeChoicesArray)];
-    this.choice = fighter;
-    console.log(this.choice);
-  }
-
-  chooseFighter(event) {
-    var chosenFighter = event.target.closest('button').id;
-    this.choice = chosenFighter;
-    console.log(this.choice);
-    //innerHTML classicGameIconsSection
-  }
-
-  takeTurn(event, choicesArray) {
-
-    if(this.name === 'human') {
-      this.chooseFighter(event);
+    var parsedWin = "";
+    if (this.name === 'Human') {
+    parsedWin = JSON.parse(localStorage.getItem('humanWins'));
     } else {
-      this.chooseRandomFighter(choicesArray);
+    parsedWin = JSON.parse(localStorage.getItem('compWin'));
+    }
+    return parsedWin;
+  }
+
+
+  setTimeout() {
+    show(classicGameIconsSection)
+  }
+
+  takeTurn(type, playerInput) {
+      if (playerInput) {
+      this.choice = playerInput;
+    } else if (type === 'Classic') {
+      var classicChoices = ['book', 'ball', 'wand'];
+      this.choice =
+      classicChoices[getRandomIndex(classicChoices)];
+    } else if (type === 'Difficult') {
+      var difficultChoices = ['book', 'ball', 'wand', 'broom', 'hat'];
+      this.choice = difficultChoices[getRandomIndex(difficultChoices)];
+      console.log('computer fighter', this.choice);
     }
   }
 }
