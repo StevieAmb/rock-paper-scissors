@@ -69,8 +69,6 @@ function resetGame() {
   }
 }
 
-
-
 function startClassicGame() {
   show([changeGameButton, allFighterIconsSection]);
   hide([classicGamePlayButton, difficultGameButton, broomFighterButton, hatFighterButton]);
@@ -85,10 +83,10 @@ function startDifficultGame() {
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 function showChosenIcons() {
+  show(playersChosenFighters);
   playersChosenFighters.innerHTML =
   `<img class="player-icon-size" src="./assets/magic-${newGame.player.choice}.png">
   <img class="player-icon-size" src="./assets/magic-${newGame.computer.choice}.png">`
-  hide(allFighterIconsSection);
 }
 
 function updateWinCount() {
