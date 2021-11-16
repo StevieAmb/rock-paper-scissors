@@ -20,7 +20,7 @@ class Player {
     if (this.name === 'Human') {
     parsedWin = JSON.parse(localStorage.getItem('humanWins'));
     } else {
-    parsedWin = JSON.parse(localStorage.getItem('compWin'));
+    parsedWin = JSON.parse(localStorage.getItem('compWins'));
     }
     return parsedWin;
   }
