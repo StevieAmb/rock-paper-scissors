@@ -83,7 +83,7 @@ function startDifficultGame() {
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 function showChosenIcons() {
-  show(playersChosenFighters);
+  show([playersChosenFighters]);
   playersChosenFighters.innerHTML =
   `<img class="player-icon-size" src="./assets/magic-${newGame.player.choice}.png">
   <img class="player-icon-size" src="./assets/magic-${newGame.computer.choice}.png">`
@@ -105,7 +105,7 @@ function updateWinText() {
 
 function changeGame() {
   show([classicGamePlayButton, difficultGamePlayButton]);
-  hide(changeGameButton);
+  hide([changeGameButton, allFighterIconsSection, playersChosenFighters]);
   chooseYourGameTitleLine.innerText = "Choose Your Game!";
 }
 
