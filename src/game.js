@@ -27,8 +27,6 @@ class Game {
     this.computer.takeTurn(this.type);
     var playerChoice = this.player.choice;
     var computerChoice = this.computer.choice;
-    console.log(computerChoice);
-    console.log(this.type);
     this.player.wins = this.player.retrieveWinsFromStorage() || 0;
     this.computer.wins = this.computer.retrieveWinsFromStorage() || 0;
     if (playerChoice === 'book' && (computerChoice === 'wand' || computerChoice === 'broom')) {
@@ -36,7 +34,6 @@ class Game {
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('book', this.winner);
       console.log('Wingardium Leviosa!')
       return true;
     } else if (playerChoice === 'ball' && (computerChoice === 'book' || computerChoice === 'broom')) {
@@ -47,13 +44,11 @@ class Game {
       console.log(this.winner);
       console.log('Petrificus Totalus!');
       return true;
-      console.log('ball', this.winner)
     } else if (playerChoice === 'wand' && (computerChoice === 'ball' || computerChoice === 'hat')) {
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('wand', this.winner);
       console.log('Expecto Patronum!');
       return true;
     } else if (playerChoice === 'hat' && (computerChoice === 'book' || computerChoice === 'ball')){
@@ -61,7 +56,6 @@ class Game {
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('ball', this.winner);
       console.log('Expelliarmus!');
       return true;
     } else if (playerChoice === 'broom' && (computerChoice === 'hat' || computerChoice === 'wand')) {
@@ -69,10 +63,10 @@ class Game {
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('broom', this.winner);
       console.log('Expecto Patronum!');
       return true;
     } else if (playerChoice === computerChoice) {
+      this.winner = "";
       console.log('Are you a witch or not?');
       console.log(playerChoice);
       console.log(computerChoice);
