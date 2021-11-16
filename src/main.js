@@ -52,10 +52,6 @@ function play(event) {
   showChosenIcons();
   setTimeout(resetGame, 2000);
   newGame.setScore();
-
-  //save wins to local storage
-  //instantiate new game
-  //retrieveWinsFromStorage
 }
 
 function resetGame() {
@@ -78,15 +74,15 @@ function startClassicGame() {
 
 function startDifficultGame() {
   newGame.type = 'Difficult'
-  show([changeGameButton, allFighterIconsSection]);
+  show([changeGameButton, allFighterIconsSection, broomFighterButton, hatFighterButton]);
   hide([classicGamePlayButton, difficultGameButton]);
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 function showChosenIcons() {
   show([playersChosenFighters]);
   playersChosenFighters.innerHTML =
-  `<img class="player-icon-size" src="./assets/magic-${newGame.player.choice}.png">
-  <img class="player-icon-size" src="./assets/magic-${newGame.computer.choice}.png">`
+  `<img class="player-icon-size human-chosen-icon-border" src="./assets/magic-${newGame.player.choice}.png">
+  <img class="player-icon-size comp-chosen-icon-border" src="./assets/magic-${newGame.computer.choice}.png">`
 }
 
 function updateWinCount() {

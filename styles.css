@@ -60,6 +60,26 @@ main {
   margin-bottom: 1px;
 }
 
+.human-chosen-icon-border {
+  border: 3px double #800000;
+  border-radius: 6px;
+}
+
+.comp-chosen-icon-border {
+  border: 3px double #00008B;
+  border-radius: 6px;
+}
+
+.human-color {
+  color: #800000;
+  font-weight: bold;
+}
+
+.comp-color {
+  color: ##00008B;
+  font-weight: bold;
+}
+
 .choose-game {
   margin-top: -60px;
   color: #FFF;
