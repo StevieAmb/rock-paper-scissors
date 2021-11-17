@@ -75,6 +75,7 @@ function updateWinCount() {
   humanWinCount.innerText = newGame.player.retrieveWinsFromStorage() || 0;
   compWinCount.innerText = newGame.computer.retrieveWinsFromStorage() || 0;
 }
+
 function updateWinText() {
   if (newGame.winner === 'Human' || newGame.winner === 'Computer') {
     chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`
@@ -83,19 +84,12 @@ function updateWinText() {
   }
 }
 
-
-
 function changeGame() {
   show([classicGamePlayButton, difficultGamePlayButton]);
   hide([changeGameButton, allFighterIconsSection, playersChosenFighters]);
   chooseYourGameTitleLine.innerText = "Choose Your Game!";
 }
 
-
-// function getRandomIndex(array) {
-//   console.log(array);
-//    return Math.floor(Math.random() * array.length);
-// }
 function show(elements) {
   for (var i = 0; i < elements.length; i++) {
     elements[i].classList.remove('hidden');
