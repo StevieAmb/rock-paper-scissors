@@ -59,17 +59,49 @@ human player chooses a fighter, and wins!
 Languages:
 
 - HTML
-- CSS 
+- CSS
 - Javascript
 
 ## Code Architecture
 
--
+- This project utilizes the DATA MODEL and the DOM. The DOM is an area of
+existence that lives up on top of the HTML, and the DATA MODEL is made up of
+data that we can pull to update what is shown on the DOM/web page.
+
+- There are:
+   - One HTML file (for the hard-coded HTML)
+   - One CSS file, where we can do our styling and layout for the page.
+   - There is one main JS page that has everything we need in order to update
+   the web page, and make it dynamic based on user interaction.
+   - There is the two classes
+     - The Game Class, which has two instances of the Player Class, and
+     ultimately holds the game logic and how it's supposed to be played.
+     - The Player Class, which holds what the player is meant to be doing, and
+     the things that each player instance is able to do.
 
 ## Challenges
 
+- This entire project was challenging, to be quite frank. I think the hardest
+thing for me, though, was organizing all of my code once I got all of the
+pieces down. Even though I am able to think about all the pieces I may need, I
+tend to struggle with organizing them.
+
 ## Wins
+
+- I am proud that I made something that works, and you can actually play a game
+on it. I am also proud I got to add my own spin on it, and sort of personalize
+it to be something that I would enjoy playing.
+
+- I am ALSO proud to say that this project, I was taught about slowing down. I
+generate thought at a very rapid pace, but I process much slower, so I learned
+that I actually need to slow my thoughts down, and look at my code slowly, and
+rubber duck slowly and in a more controlled manner, which really helps me see
+the code and the organizing of it a lot better. I am very proud of having
+someone teach me this, and the applying it to my learning and producing and
+seeing the immediate results of that process and how it helps my understanding.
 
 ## Contributors
 
+- Christine Rowland
 - [Stevie Ambroise]
+- Alice Ruppert
