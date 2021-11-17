@@ -16,24 +16,10 @@ var humanWinCount = document.getElementById('humanWinCount');
 var compWinCount = document.getElementById('compWinCount');
 var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 
-//arrays && fighter choices
-// var classicChoices = ['book', 'ball', 'wand'];
-// var difficultChoices = ['book', 'crystalBall', 'wand', 'broom', 'hat'];
-
 //object instance
 var newGame = new Game();
 
 //eventListeners
-
-//event Listeners for buttons
-// bookFighterButton.addEventListener('click',);
-// crystalBallFighterButton.addEventListener('click',);
-// wandFighterButton.addEventListener('click',);
-// //buttons: difficult
-// broomFighterButton.addEventListener('click',);
-// hatFighterButton.addEventListener('click',);
-
-
 window.addEventListener('onload', updateWinCount());
 
 allFighterIconsSection.addEventListener('click', function(event) {
