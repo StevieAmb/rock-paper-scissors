@@ -1,3 +1,5 @@
+# BOOK, BALL, WAND
+
 ## Set-Up Instructions
 Have you always wanted to test out your powers in the Wizarding World?
 
@@ -84,7 +86,7 @@ data that we can pull to update what is shown on the DOM/web page.
 - This entire project was challenging, to be quite frank. I think the hardest
 thing for me, though, was organizing all of my code once I got all of the
 pieces down. Even though I am able to think about all the pieces I may need, I
-tend to struggle with organizing them.
+tend to struggle with organizing them, or knowing where things must go sometimes.
 
 ## Wins
 
@@ -102,6 +104,6 @@ seeing the immediate results of that process and how it helps my understanding.
 
 ## Contributors
 
-- Christine Rowland
 - [Stevie Ambroise]
+- Christine Rowland
 - Alice Ruppert
