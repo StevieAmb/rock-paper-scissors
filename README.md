@@ -37,8 +37,9 @@ best against the computer/witch.
 ![Screen Shot 2021-11-16 at 5 06 00 PM](https://user-images.githubusercontent.com/89324625/142086594-bf940e19-2484-4987-a009-0051eb1aaf3c.png)
 
 1. After you make your choice, the screen will return to the icon set-up, and
-you can test your wits all over again, or choose the DIFFICULT button, and add
-a challenge edge to it.
+you can test your wits all over again, OR
+  - You can click the "Change Game?" button and click "DIFFICULT" to add a 
+  challenge edge, and see what magical stuff you're REALLY made of.
 
 
 ## Future Features
