@@ -8,16 +8,6 @@ class Game {
     this.difficultChoices = ['book', 'ball', 'wand', 'broom', 'hat'];
   }
 
-// A way to keep track of the data for the game board
-// A way to keep track of the selected game type
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-// A way to reset the Game’s board to begin a new game
-
-  trackData() {
-
-  }
-
   setGameType(type) {
     this.type = type;
   }
@@ -34,50 +24,39 @@ class Game {
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('Wingardium Leviosa!')
       return true;
     } else if (playerChoice === 'ball' && (computerChoice === 'book' || computerChoice === 'broom')) {
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log(this.winner);
-      console.log('Petrificus Totalus!');
       return true;
     } else if (playerChoice === 'wand' && (computerChoice === 'ball' || computerChoice === 'hat')) {
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('Expecto Patronum!');
       return true;
     } else if (playerChoice === 'hat' && (computerChoice === 'book' || computerChoice === 'ball')){
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('Expelliarmus!');
       return true;
     } else if (playerChoice === 'broom' && (computerChoice === 'hat' || computerChoice === 'wand')) {
       this.player.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
       this.winner = this.player.name;
-      console.log('Expecto Patronum!');
       return true;
     } else if (playerChoice === computerChoice) {
       this.winner = "";
-      console.log('Are you a witch or not?');
-      console.log(playerChoice);
-      console.log(computerChoice);
       return true;
     } else {
       this.winner = this.computer.name;
       this.computer.wins++;
       this.player.saveWinsToStorage();
       this.computer.saveWinsToStorage();
-      console.log(this.winner);
-      console.log('Avada Kadavra!');
       return false;
    }
  }
