@@ -38,7 +38,7 @@ best against the computer/witch.
 
 1. After you make your choice, the screen will return to the icon set-up, and
 you can test your wits all over again, OR
-  - You can click the "Change Game?" button and click "DIFFICULT" to add a 
+  - You can click the "Change Game?" button and click "DIFFICULT" to add a
   challenge edge, and see what magical stuff you're REALLY made of.
 
 
@@ -100,11 +100,12 @@ generate thought at a very rapid pace, but I process much slower, so I learned
 that I actually need to slow my thoughts down, and look at my code slowly, and
 rubber duck slowly and in a more controlled manner, which really helps me see
 the code and the organizing of it a lot better. I am very proud of having
-someone teach me this, and the applying it to my learning and producing and
-seeing the immediate results of that process and how it helps my understanding.
+someone teach me this, and then making it a point to take that I learned and
+apply it to my learning and producing and seeing the immediate results of that
+process and how it helps my understanding.
 
 ## Contributors
 
-- [Stevie Ambroise]
-- Christine Rowland
-- Alice Ruppert
+- [Stevie Ambroise](https://github.com/StevieAmb)
+- [Christine Rowland](https://github.com/Fordo29)
+- [Alice Ruppert](https://github.com/srslie)
