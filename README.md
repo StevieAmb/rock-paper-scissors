@@ -34,12 +34,42 @@ choose, or `5`.
 best against the computer/witch.
 ![Screen Shot 2021-11-16 at 5 06 00 PM](https://user-images.githubusercontent.com/89324625/142086594-bf940e19-2484-4987-a009-0051eb1aaf3c.png)
 
+1. After you make your choice, the screen will return to the icon set-up, and
+you can test your wits all over again, or choose the DIFFICULT button, and add
+a challenge edge to it.
+
 
 ## Future Features
 
+- For future use, I would love it to have a spell showing in Latin when the
+human player chooses a fighter, and wins!
+
+- I would love to have another spell show up when the computer/witch wins.
+
+- I would also love to have another tagline show when there is a tie that says
+"Are you a wizard/witch or not?"
 
 ## Technologies Used
 
+- Google Chrome
+- Github
+- Terminal
+- Atom
+
+Languages:
+
+- HTML
+- CSS 
+- Javascript
+
 ## Code Architecture
 
-- This project uses the DOM and the Data Model.
+-
+
+## Challenges
+
+## Wins
+
+## Contributors
+
+- [Stevie Ambroise]
