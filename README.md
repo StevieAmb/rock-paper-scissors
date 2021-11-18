@@ -14,7 +14,7 @@ There's an app for that. Want to play?
 
 ## Instructions For Use
 
-- Get on the page [here]:
+- Get on the page [here](https://stevieamb.github.io/rock-paper-scissors/).
 
 1. Once you're on the page, you will see two buttons
 - Classic
