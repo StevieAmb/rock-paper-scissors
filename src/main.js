@@ -21,7 +21,6 @@ var newGame = new Game();
 
 //eventListeners
 window.addEventListener('onload', updateWinCount());
-
 allFighterIconsSection.addEventListener('click', function(event) {
   play(event);
 });
