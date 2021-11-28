@@ -20,17 +20,9 @@ var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 var newGame = new Game();
 
 //eventListeners
-window.addEventListener('onload', updateWinCount());
-allFighterIconsSection.addEventListener('click', function(event) {
-  play(event);
-});
-classicGamePlayButton.addEventListener('click', startClassicGame);
-difficultGamePlayButton.addEventListener('click', startDifficultGame);
-changeGameButton.addEventListener('click', changeGame);
 
-function play(event) {
+const play = (event) => {
   newGame.player.choice = event.target.id;
-  console.log("play", event);
   newGame.checkWinner();
   updateWinText();
   hide([allFighterIconsSection]);
@@ -39,7 +31,7 @@ function play(event) {
   newGame.setScore();
 }
 
-function resetGame() {
+const resetGame = () => {
   if (newGame.type === 'Classic') {
     show([allFighterIconsSection]);
     hide([playersChosenFighters]);
@@ -50,32 +42,32 @@ function resetGame() {
   }
 }
 
-function startClassicGame() {
+const startClassicGame = () => {
   show([changeGameButton, allFighterIconsSection]);
   hide([classicGamePlayButton, difficultGameButton, broomFighterButton, hatFighterButton]);
   newGame.type = 'Classic';
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
 
-function startDifficultGame() {
+const startDifficultGame = () => {
   newGame.type = 'Difficult'
   show([changeGameButton, allFighterIconsSection, broomFighterButton, hatFighterButton]);
   hide([classicGamePlayButton, difficultGameButton]);
   chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
 }
-function showChosenIcons() {
+const showChosenIcons = () => {
   show([playersChosenFighters]);
   playersChosenFighters.innerHTML =
   `<img class="player-icon-size human-chosen-icon-border" src="./assets/magic-${newGame.player.choice}.png">
   <img class="player-icon-size comp-chosen-icon-border" src="./assets/magic-${newGame.computer.choice}.png">`
 }
 
-function updateWinCount() {
+const updateWinCount = () => {
   humanWinCount.innerText = newGame.player.retrieveWinsFromStorage() || 0;
   compWinCount.innerText = newGame.computer.retrieveWinsFromStorage() || 0;
 }
 
-function updateWinText() {
+const updateWinText = () => {
   if (newGame.winner === 'Human' || newGame.winner === 'Computer') {
     chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`
   } else {
@@ -83,20 +75,24 @@ function updateWinText() {
   }
 }
 
-function changeGame() {
+const changeGame = () => {
   show([classicGamePlayButton, difficultGamePlayButton]);
   hide([changeGameButton, allFighterIconsSection, playersChosenFighters]);
   chooseYourGameTitleLine.innerText = "Choose Your Game!";
 }
 
-function show(elements) {
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove('hidden');
-  }
+const show = (elements) => {
+  elements.forEach(element => element.classList.remove('hidden'));
 }
 
-function hide(elements) {
-  for (var i = 0; i < elements.length; i++) {
-   elements[i].classList.add('hidden');
- }
+const hide = (elements) => {
+  elements.forEach(element => element.classList.add('hidden'));
 }
+
+window.addEventListener('onload', updateWinCount());
+allFighterIconsSection.addEventListener('click', function(event) {
+  play(event);
+});
+classicGamePlayButton.addEventListener('click', startClassicGame);
+difficultGamePlayButton.addEventListener('click', startDifficultGame);
+changeGameButton.addEventListener('click', changeGame);
