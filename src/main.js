@@ -19,7 +19,6 @@ var chooseYourGameTitleLine = document.getElementById('chooseYourGame');
 //object instance
 var newGame = new Game();
 
-//eventListeners
 
 const play = (event) => {
   newGame.player.choice = event.target.id;
@@ -32,13 +31,16 @@ const play = (event) => {
 }
 
 const resetGame = () => {
-  if (newGame.type === 'Classic') {
-    show([allFighterIconsSection]);
-    hide([playersChosenFighters]);
-    chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
-  } else if (newGame.type === 'Difficult') {
-   startDifficultGame();
-   hide([playersChosenFighters]);
+  switch (newGame.type) {
+    case 'Classic':
+      show([allFighterIconsSection]);
+      hide([playersChosenFighters]);
+      chooseYourGameTitleLine.innerText = "Choose Your Fighter!";
+    break;
+    case 'Difficult':
+      startDifficultGame();
+      hide([playersChosenFighters]);
+    break;
   }
 }
 
@@ -68,10 +70,14 @@ const updateWinCount = () => {
 }
 
 const updateWinText = () => {
-  if (newGame.winner === 'Human' || newGame.winner === 'Computer') {
-    chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`
-  } else {
-    chooseYourGameTitleLine.innerText = `It's a draw!`
+  switch (newGame.winner) {
+    case 'Human':
+    case 'Computer':
+      chooseYourGameTitleLine.innerText = `${newGame.winner} wins!`;
+    break;
+    default:
+      chooseYourGameTitleLine.innerText = `It's a draw!`
+    break;
   }
 }
 
@@ -89,6 +95,7 @@ const hide = (elements) => {
   elements.forEach(element => element.classList.add('hidden'));
 }
 
+//eventListeners
 window.addEventListener('onload', updateWinCount());
 allFighterIconsSection.addEventListener('click', function(event) {
   play(event);
